@@ -5,7 +5,6 @@ const Definition = ({ all }) => {
     <>
       {all.map((Val) => {
         return Val.meanings.map((Means) => {
-          console.log(Val.meanings)
           return Means.definitions.map((Def) => {
             return (
               <li className="mx-7 mb-2">

@@ -16,29 +16,36 @@ function App() {
     const dataJ = await data.json();
     setAll(dataJ);
     setMain(dataJ[0]);
-    console.log(word);
   };
 
   useEffect(() => {
     dataApi();
   }, []);
 
-  const Search = () => {
-    dataApi();
+  const Search = async () => {
+    await dataApi();
     setWord("");
+    console.log(`end of search ${word}`)
   };
+
+  const handleKeyPress = e => {
+    if (e.key === "Enter") {
+      Search();
+    }
+  }
 
 
   return (
     <div className="App h-screen">
       <div className="container h-1/6 w-full max-w-full content-center bg-sky-500">
-        <div className="p-8 text-white text-2xl">Allan's Dictionary</div>
+        <div className="p-8 text-white text-2xl text-center">Allan's Dictionary</div>
         <div className="flex justify-center">
-          <div className="mb-3 w-1/2">
+          <div className="mb-3 w-5/6 lg:w-1/2">
             <div className="input-group relative flex  items-stretch w-full mb-4">
               <input
                 value={word}
                 onChange={(e) => setWord(e.target.value)}
+                onKeyPress={handleKeyPress}
                 type="search"
                 className="block w-full px-3 py-1.5 text-base text-gray-700 bg-white border border-solid border-white rounded transition ease-in-out m-0  focus:outline-none"
                 placeholder="Search"
@@ -60,12 +67,12 @@ function App() {
       <div className="bg-gray-700 min-h-[83.33%] text-white p-8 grid content-center">
         {word === "" ? (
           all.message ?
-            <ErrorMessage message={all.message} word={word} />
+            <ErrorMessage message={all.message} />
             : <Select all={all} main={main} />
         ) : (
-          <div className="fs-1 text-capitalize text-center fw-bold text-decoration-underline text-white bg-dark extra">
-            type a word in the box
-          </div>
+          <p className="text-center">
+            Type a word in the search box
+          </p>
         )}
       </div>
     </div>

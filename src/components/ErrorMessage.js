@@ -1,11 +1,8 @@
-const ErrorMessage = ({ message, word }) => {
+const ErrorMessage = ({ message }) => {
     return (
-        <>
-            <h1>
-                {word}
-            </h1>
-            <p>{message}</p>
-        </>
+
+        <p className="text-center">{message}</p>
+
     )
 
 }
