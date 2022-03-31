@@ -58,7 +58,9 @@ function App() {
 
       <div className="bg-gray-700 h-5/6 text-white p-8 grid content-center">
         {word === "" ? (
-          <Select all={all} main={main} />
+          all.message ?
+            all.message
+            : <Select all={all} main={main} />
         ) : (
           <div className="fs-1 text-capitalize text-center fw-bold text-decoration-underline text-white bg-dark extra">
             type a word in the box

@@ -10,6 +10,7 @@ const Select = ({ all, main, audio }) => {
       <div >
         {main.word}
       </div>
+      <Example all={all} />
       <div >
         meaning & definitions :
       </div>
