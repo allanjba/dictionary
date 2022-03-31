@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Select from "./components/Select";
+import ErrorMessage from "./components/ErrorMessage";
+
 
 function App() {
   const [word, setWord] = useState();
@@ -13,9 +15,8 @@ function App() {
     );
     const dataJ = await data.json();
     setAll(dataJ);
-    console.log(dataJ);
     setMain(dataJ[0]);
-    console.log(dataJ[0]);
+    console.log(word);
   };
 
   useEffect(() => {
@@ -56,10 +57,10 @@ function App() {
         </div>
       </div>
 
-      <div className="bg-gray-700 h-5/6 text-white p-8 grid content-center">
+      <div className="bg-gray-700 min-h-[83.33%] text-white p-8 grid content-center">
         {word === "" ? (
           all.message ?
-            all.message
+            <ErrorMessage message={all.message} word={word} />
             : <Select all={all} main={main} />
         ) : (
           <div className="fs-1 text-capitalize text-center fw-bold text-decoration-underline text-white bg-dark extra">

@@ -9,7 +9,7 @@ const Antonyms = ({ all }) => {
             return Def.antonyms.map((Ant) => {
               return (
                 <>
-                  {Ant}
+                  {Ant},{" "}
                 </>
               );
             });

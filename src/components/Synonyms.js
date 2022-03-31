@@ -9,7 +9,7 @@ const Synonyms = ({ all }) => {
             return Def.synonyms.map((Syn) => {
               return (
                 <>
-                  {Syn}
+                  {Syn},{" "}
                 </>
               );
             });
