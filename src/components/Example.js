@@ -9,9 +9,7 @@ const Example = ({ all }) => {
             return (
               <>
                 {Def.example ? (
-                  <li className="text-capitalize fs-5 text-start px-3">
-                    {Def.example}
-                  </li>
+                  Def.example
                 ) : (
                   ""
                 )}
